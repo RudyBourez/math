@@ -3,15 +3,13 @@ import numpy as np
 
 liste = [1, 5, 5, 2, 8, 12, 11, 10, 4, 5]
 liste.sort()
-moyenne = sum(liste)/len(liste)
-ecart_type = (sum(list(map(lambda x: (x - moyenne)**2, liste)))/10) ** (1/2)
-minimum = min(liste)
-maximum = max(liste)
-print(f'Ecart-type calcul : {ecart_type}')
+Q1 = (len(liste)+3)/4
+Me = (len(liste)+1)/2
+Q3 = (3*len(liste)+1)/4
+print(Q1,Me,Q3)
 
-df = pd.DataFrame(liste, columns=["values"])
-print(df.describe())
-matrice = np.array(liste)
-print(f'Ecart-type numpy : {matrice.std(ddof=1)}')
+quartile1 = liste[2]+0.25*(liste[3]-liste[2])
+mediane_calc = liste[4] + 0.5*(liste[5]-liste[4])
+quartile3 = liste[6]+0.75*(liste[7]-liste[6])
 
-# print(mediane)
+print(quartile1,mediane_calc,quartile3)
